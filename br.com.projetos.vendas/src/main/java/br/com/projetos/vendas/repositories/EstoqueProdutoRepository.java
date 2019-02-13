@@ -12,5 +12,7 @@ public interface EstoqueProdutoRepository extends JpaRepository<EstoqueProduto, 
 
     @Query("SELECT ep FROM EstoqueProduto ep WHERE ep.produto.nome = :produtoNome")
     EstoqueProduto findByProduto(@Param("produtoNome") String produtoNome);
-    
+ 
+    @Query("SELECT ep FROM EstoqueProduto ep WHERE ep.produto.id = :produtoId")
+    EstoqueProduto findByProduto(@Param("produtoId") Long id);
 }

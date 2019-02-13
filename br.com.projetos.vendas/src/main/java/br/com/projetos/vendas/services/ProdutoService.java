@@ -19,7 +19,7 @@ public class ProdutoService extends ServiceBase {
     public ProdutoDTO cadastrarProduto(ProdutoDTO produtoDTO){
 	
 	Produto produto = getModelMapper().map(produtoDTO, Produto.class);
-	//Criacao do código de barras
+	//Criacao do cï¿½digo de barras
 	repository.save(produto);
 	estoqueProdutoService.criarEstoqueProduto(produto);
 	
@@ -28,5 +28,9 @@ public class ProdutoService extends ServiceBase {
     
     public ProdutoDTO consultarPorId(Long id) {
 	return getModelMapper().map(repository.getOne(id), ProdutoDTO.class);
+    }
+    
+    public Produto findById(Long id) {
+	return repository.getOne(id);
     }
 }

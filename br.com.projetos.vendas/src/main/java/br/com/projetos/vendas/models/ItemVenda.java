@@ -32,6 +32,9 @@ public class ItemVenda implements Serializable{
     @JoinColumn(name = "id_produto", nullable = false)
     private Produto produto;
     
+    @Column(name = "qtdProduto")
+    private Long qtd;
+    
     @Enumerated(EnumType.STRING)
     @Column(name = "status_item_venda", nullable = false, length = 1)
     private AtivoInativo status;
@@ -50,6 +53,14 @@ public class ItemVenda implements Serializable{
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public Long getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(Long qtd) {
+        this.qtd = qtd;
     }
 
     public AtivoInativo getStatus() {
